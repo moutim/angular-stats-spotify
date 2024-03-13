@@ -1,12 +1,26 @@
 <p>
   <mat-toolbar color="">
     <mat-toolbar-row>
-      <span class="logo">Stats Spotify</span>
-      <span class="spacer-nav">Músicas</span>
-      <span class="spacer-nav">Artistas</span>
-      <span class="spacer-nav">Playlists</span>
+      <span class="logo">
+        <a [routerLink]="['/']">Stats Spotify</a>
+      </span>
+
+      <span class="spacer-nav">
+        <a [routerLink]="['/musics']" routerLinkActive="router-link-active">Músicas</a>
+      </span>
+
+      <span class="spacer-nav">
+        <a [routerLink]="['/artists']" routerLinkActive="router-link-active">Artistas</a>
+      </span>
+
+      <span class="spacer-nav">
+        <a [routerLink]="['/playlists']" routerLinkActive="router-link-active">Playlists</a>
+      </span>
+
       <span class="example-spacer"></span>
-      <span>Entrar</span>
+      <span>
+        <a [routerLink]="['/login']">Entrar</a>
+      </span>
     </mat-toolbar-row>
   </mat-toolbar>
 </p>
