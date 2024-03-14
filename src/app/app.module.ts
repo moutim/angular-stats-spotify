@@ -11,6 +11,7 @@ import { LoginModule } from './login/login.module';
 import { ArtistsModule } from './artists/artists.module';
 import { MusicsModule } from './musics/musics.module';
 import { PlaylistsModule } from './playlists/playlists.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PlaylistsModule } from './playlists/playlists.module';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NavbarModule,
     LoginModule,

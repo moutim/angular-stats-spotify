@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import variables from '../../../variables';
+import { TokenAuthService } from './token-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,36 +7,28 @@ import variables from '../../../variables';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  scopesList = [
-    'user-top-read',
-    'user-read-recently-played',
-    'user-read-currently-playing',
-    'user-read-playback-state',
-    'user-top-read',
-    'user-read-private',
-    'user-read-email',
-    'user-read-recently-played',
-    'playlist-read-collaborative',
-    'playlist-read-private',
-    'playlist-modify-private',
-    'playlist-modify-public'
-  ];
+  token: string = '';
+  constructor(private authService: TokenAuthService) {
 
-  redirect: boolean = false;
+    console.log(this.token);
 
-  constructor() {
-    const redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.REACT_APP_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REACT_APP_REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
-
-    window.location.href = redirectURL;
   }
 
   ngOnInit() {
-    if (this.redirect) {
-      console.log('1111');
+    // this.authService.getAcessToken();
+    this.authService.getAcessToken().subscribe({
+      next: (result: any) => {
+        this.token = result.access_token;
+        console.log(result.access_token);
+        console.log('correto');
+      },
+      error: (error) => {
+        // console.log(error);
+        // console.log('erro');
+      }
+    });
 
-    } else {
+    console.log(this.token);
 
-      this.redirect = true;
-    }
   }
 }
