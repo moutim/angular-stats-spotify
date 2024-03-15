@@ -12,6 +12,7 @@ import { ArtistsModule } from './artists/artists.module';
 import { MusicsModule } from './musics/musics.module';
 import { PlaylistsModule } from './playlists/playlists.module';
 import { HttpClientModule } from '@angular/common/http';
+import { TokenAuthService } from './shared/token-auth.service';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,12 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     ArtistsModule,
     MusicsModule,
-    PlaylistsModule
+    PlaylistsModule,
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    TokenAuthService
   ],
   bootstrap: [AppComponent]
 })

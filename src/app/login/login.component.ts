@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TokenAuthService } from './token-auth.service';
+import { TokenAuthService } from '../shared/token-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,28 +7,27 @@ import { TokenAuthService } from './token-auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  token: string = '';
-  constructor(private authService: TokenAuthService) {
-
-    console.log(this.token);
-
-  }
+  constructor(private authService: TokenAuthService) { }
 
   ngOnInit() {
-    // this.authService.getAcessToken();
-    this.authService.getAcessToken().subscribe({
+    this.authService.getToken().subscribe({
       next: (result: any) => {
-        this.token = result.access_token;
-        console.log(result.access_token);
+        this.saveToken(result.access_token)
+        console.log(result);
         console.log('correto');
       },
       error: (error) => {
-        // console.log(error);
-        // console.log('erro');
+        console.log(error);
+        console.log('erro');
       }
     });
+  }
 
-    console.log(this.token);
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
 
+    this.authService.token = token;
+
+    console.log(this.authService.token);
   }
 }

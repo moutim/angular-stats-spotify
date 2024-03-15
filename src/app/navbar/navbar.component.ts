@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
-import variables from '../../../variables';
+import variables from '../../../variables.example';
 
 @Component({
   selector: 'app-navbar',
