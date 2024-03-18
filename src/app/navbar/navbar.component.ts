@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
-import variables from '../../../variables.example';
+import variables from '../../../variables';
 
 @Component({
   selector: 'app-navbar',
@@ -20,21 +20,23 @@ export class NavbarComponent {
     'user-read-recently-played',
     'user-read-currently-playing',
     'user-read-playback-state',
-    'user-top-read',
     'user-read-private',
     'user-read-email',
-    'user-read-recently-played',
     'playlist-read-collaborative',
     'playlist-read-private',
     'playlist-modify-private',
     'playlist-modify-public'
   ];
 
+  scopes: string = 'user-top-read user-read-private user-read-email';
+
   redirectURL: string = '';
 
   redirect: boolean = false;
 
-  constructor() {
-    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.REACT_APP_CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REACT_APP_REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
+  constructor() { }
+
+  ngOnInit() {
+    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
   }
 }

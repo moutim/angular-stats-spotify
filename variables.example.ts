@@ -1,5 +1,0 @@
-export default {
-  REACT_APP_CLIENT_ID: 'ad5577aaca644405975f331123d60a58',
-  REACT_APP_REDIRECT_URL: 'http://localhost:4200/login',
-  REACT_APP_CLIENT_SECRET: 'd3041563f8674d8bba717d1dd94faf1b'
-}

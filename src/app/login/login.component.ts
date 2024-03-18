@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TokenAuthService } from '../shared/token-auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +8,24 @@ import { TokenAuthService } from '../shared/token-auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private authService: TokenAuthService) { }
+  code: string | null = '';
+
+  constructor(
+    private authService: TokenAuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.authService.getToken().subscribe({
+    this.code = this.route.snapshot.queryParamMap.get('code');
+
+    if (!this.code) this.code = ''
+
+    this.authService.getToken(this.code).subscribe({
       next: (result: any) => {
         this.saveToken(result.access_token)
-        console.log(result);
-        console.log('correto');
+
+        this.router.navigate(['/musics']);
       },
       error: (error) => {
         console.log(error);
@@ -24,7 +35,7 @@ export class LoginComponent {
   }
 
   saveToken(token: string) {
-    localStorage.setItem('token', token);
+    // localStorage.setItem('token', token);
 
     this.authService.token = token;
 
