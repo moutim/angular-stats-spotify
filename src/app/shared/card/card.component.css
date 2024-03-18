@@ -1,0 +1,8 @@
+.example-card {
+  width: 250px;
+}
+
+.mat-mdc-card-header {
+  padding: 10px;
+  color: white;
+}

@@ -13,6 +13,7 @@ import { MusicsModule } from './musics/musics.module';
 import { PlaylistsModule } from './playlists/playlists.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenAuthService } from './shared/token-auth.service';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TokenAuthService } from './shared/token-auth.service';
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
+    MatCardModule,
     BrowserAnimationsModule,
     NavbarModule,
     LoginModule,

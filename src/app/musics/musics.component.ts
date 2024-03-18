@@ -8,6 +8,8 @@ import { UserDataService } from '../shared/user-data.service';
   styleUrl: './musics.component.css'
 })
 export class MusicsComponent {
+  musics: [] | null = [];
+
   constructor(
     private tokenService: TokenAuthService,
     private dataService: UserDataService
@@ -16,7 +18,9 @@ export class MusicsComponent {
   ngOnInit() {
     this.dataService.getMostListenedMusics().subscribe({
       next: (result: any) => {
+        this.musics = result;
         console.log(result);
+
       }
     });
   }
