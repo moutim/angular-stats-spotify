@@ -3,18 +3,27 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
-    // NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
-    NavbarComponent,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    MatMenuModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
   ]
 })
 export class NavbarModule { }

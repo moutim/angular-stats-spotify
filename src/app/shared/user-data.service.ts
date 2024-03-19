@@ -29,14 +29,26 @@ export class UserDataService {
     }
   }
 
-  getMostListenedMusics(timeRange: string) {
+  mountHeaders() {
     const headers: HttpHeaders = new HttpHeaders({
       'Authorization': 'Bearer ' + this.token
     });
+
+    return headers;
+  }
+
+  getMostListenedMusics(timeRange: string) {
+    const headers: HttpHeaders = this.mountHeaders();
 
     return this.http.get(
       `${this.host}/v1/me/top/tracks?time_range=${timeRange}_term&limit=50`,
       { headers: headers }
     );
+  }
+
+  getUserInfo() {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.get(`${this.host}/v1/me`, { headers: headers });
   }
 }

@@ -18,9 +18,14 @@
       </span>
 
       <span class="example-spacer"></span>
-      <span>
+      <span *ngIf="!userLogged">
         <a [href]="redirectURL">Entrar</a>
       </span>
+
+      <button *ngIf="userLogged" mat-button [matMenuTriggerFor]="menu">Olá, Vitor</button>
+      <mat-menu #menu="matMenu">
+        <a class="button-exit" mat-raised-button href="https://www.google.com/" target="_blank">Sair</a>
+      </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>
 </p>

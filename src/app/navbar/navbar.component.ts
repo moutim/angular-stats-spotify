@@ -1,39 +1,36 @@
 import { Component } from '@angular/core';
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { AppRoutingModule } from '../app-routing.module';
-import { RouterModule } from '@angular/router';
-import variables from '../../../variables';
 import { TokenAuthService } from '../shared/token-auth.service';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
-  standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, AppRoutingModule, RouterModule],
 })
 export class NavbarComponent {
-  scopesList: string[] = [
-    'user-top-read',
-    'user-read-recently-played',
-    'user-read-currently-playing',
-    'user-read-playback-state',
-    'user-read-private',
-    'user-read-email',
-    'playlist-read-collaborative',
-    'playlist-read-private',
-    'playlist-modify-private',
-    'playlist-modify-public'
-  ];
+  userLogged: boolean = false;
 
   redirectURL: string = '';
 
-  constructor(private tokenService: TokenAuthService) { }
+  constructor(
+    private tokenService: TokenAuthService,
+    // private userDataService: UserDataService
+  ) {
+  }
+
+  checkIfUserLogged() {
+    const token: string | null = localStorage.getItem('token');
+
+    if (token) {
+      this.userLogged = true;
+
+    }
+  }
+
 
   ngOnInit() {
     this.redirectURL = this.tokenService.redirectURL;
+
+    this.checkIfUserLogged();
   }
 }

@@ -19,3 +19,7 @@ a {
   color: white;
   text-decoration: none;
 }
+
+.button-exit {
+  width: 100%;
+}
