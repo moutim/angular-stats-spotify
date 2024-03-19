@@ -1,7 +1,19 @@
-<div *ngIf="musics && musics.length" class="container-items">
-  <app-card
-    *ngFor="let item of musics"
-    [musicInfo]="item"
-  ></app-card>
+<div class="musics-container">
+  <h2>As suas músicas mais escutadas por período!</h2>
+
+  <section>
+    <mat-button-toggle-group (ngModelChange)="changeTimeRange($event)" [(ngModel)]="timeRange" aria-label="Font Style" class="toggle-buttons">
+      <mat-button-toggle value="short">Um mês</mat-button-toggle>
+      <mat-button-toggle value="medium">Seis meses</mat-button-toggle>
+      <mat-button-toggle value="long">Desde o início</mat-button-toggle>
+    </mat-button-toggle-group>
+  </section>
+
+  <div *ngIf="musics && musics.length" class="container-items">
+    <app-card
+      *ngFor="let item of musics"
+      [musicInfo]="item"
+    ></app-card>
+  </div>
 </div>
 

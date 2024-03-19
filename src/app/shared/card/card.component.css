@@ -1,21 +1,33 @@
+.card {
+  box-shadow: 0px 0px 15px -5px #000000;
+  margin: 50px 10px;
+  text-align: left;
+}
+
 mat-card {
   width: 220px;
   height: 220px;
-  margin: 50px 10px;
 }
 
 .card mat-card-title {
   font-size: 15px;
-  text-wrap: nowrap;
+  color: rgba(0, 0, 0, 0.7);
+  width: 205px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
 }
 
 .card mat-card-subtitle {
   font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .card img {
   max-width: 100%;
   object-fit: fill;
+  box-shadow: 0px 0px 15px -5px #000000;
 }
 
 .mat-mdc-card-header {

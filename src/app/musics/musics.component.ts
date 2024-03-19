@@ -11,13 +11,16 @@ import IMusicInfo from '../interfaces/IMusicInfo';
 export class MusicsComponent {
   musics: IMusicInfo[] = [];
 
+  timeRange: string = 'medium';
+
   constructor(
-    private tokenService: TokenAuthService,
     private dataService: UserDataService
   ) {}
 
-  ngOnInit() {
-    this.dataService.getMostListenedMusics().subscribe({
+  getMusics() {
+    if (this.musics.length > 0) this.musics = [];
+
+    this.dataService.getMostListenedMusics(this.timeRange).subscribe({
       next: (result: any) => {
         result.items.forEach((obj: any, index: number) => {
           const musicInfo: IMusicInfo = {
@@ -34,5 +37,14 @@ export class MusicsComponent {
         console.log(this.musics);
       }
     });
+  }
+
+  ngOnInit() {
+    this.getMusics();
+  }
+
+  changeTimeRange(timeRange: string) {
+    this.timeRange = timeRange;
+    this.getMusics();
   }
 }

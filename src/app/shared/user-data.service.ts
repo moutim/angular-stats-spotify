@@ -17,9 +17,9 @@ export class UserDataService {
     private tokenService: TokenAuthService
   ) { }
 
-  getMostListenedMusics() {
+  getMostListenedMusics(timeRange: string) {
     return this.http.get(
-      `${this.host}/v1/me/top/tracks?time_range=medium_term&limit=50`,
+      `${this.host}/v1/me/top/tracks?time_range=${timeRange}_term&limit=50`,
       { headers: this.headers }
     );
   }
