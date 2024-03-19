@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TokenAuthService } from './token-auth.service';
+import { DialogService } from '../dialog/dialog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +9,34 @@ import { TokenAuthService } from './token-auth.service';
 export class UserDataService {
   host: string = 'https://api.spotify.com';
 
-  headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer ' + this.tokenService.token
-  });
+  token: string = '';
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenAuthService
-  ) { }
+    private tokenService: TokenAuthService,
+    private dialog: DialogService
+  ) {
+    this.checkTokenInStorage();
+  }
+
+  checkTokenInStorage() {
+    const tokenStorage: string | null = localStorage.getItem('token');
+
+    if (tokenStorage) {
+      this.token = tokenStorage;
+    } else {
+      this.dialog.openDialog();
+    }
+  }
 
   getMostListenedMusics(timeRange: string) {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.token
+    });
+
     return this.http.get(
       `${this.host}/v1/me/top/tracks?time_range=${timeRange}_term&limit=50`,
-      { headers: this.headers }
+      { headers: headers }
     );
   }
 }

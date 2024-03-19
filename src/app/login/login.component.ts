@@ -21,8 +21,6 @@ export class LoginComponent {
       next: (result: any) => {
         this.saveToken(result.access_token)
 
-        localStorage.setItem('token', result.access_token);
-
         this.router.navigate(['/musics']);
       },
       error: (error) => {

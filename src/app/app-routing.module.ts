@@ -5,6 +5,7 @@ import { ArtistsComponent } from './artists/artists.component';
 import { MusicsComponent } from './musics/musics.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { authGuard } from './guards/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
     component: PlaylistsComponent,
     canActivate: [authGuard]
   },
+  {
+    path: '', component: HomeComponent
+  }
 ];
 
 @NgModule({

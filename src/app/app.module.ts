@@ -16,11 +16,13 @@ import { TokenAuthService } from './shared/token-auth.service';
 import { MatCardModule } from '@angular/material/card';
 import { DialogElementsExample } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
