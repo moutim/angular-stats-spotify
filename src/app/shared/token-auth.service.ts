@@ -12,7 +12,6 @@ export class TokenAuthService {
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   getToken(code: string) {
-    // const params = 'grant_type=client_credentials';
     const client_id = variables.CLIENT_ID;
     const client_secret = variables.CLIENT_SECRET;
     const encoded = btoa(client_id + ':' + client_secret);

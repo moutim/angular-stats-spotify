@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { MusicsComponent } from './musics/musics.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,15 +13,18 @@ const routes: Routes = [
   },
   {
     path: 'artists',
-    component: ArtistsComponent
+    component: ArtistsComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'musics',
-    component: MusicsComponent
+    component: MusicsComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'playlists',
-    component: PlaylistsComponent
+    component: PlaylistsComponent,
+    canActivate: [authGuard]
   },
 ];
 

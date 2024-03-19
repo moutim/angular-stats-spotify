@@ -14,6 +14,9 @@ import { PlaylistsModule } from './playlists/playlists.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenAuthService } from './shared/token-auth.service';
 import { MatCardModule } from '@angular/material/card';
+import { DialogElementsExample } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { MatCardModule } from '@angular/material/card';
     ArtistsModule,
     MusicsModule,
     PlaylistsModule,
+    MatDialogModule,
+    DialogElementsExample
   ],
   providers: [
     provideClientHydration(),
