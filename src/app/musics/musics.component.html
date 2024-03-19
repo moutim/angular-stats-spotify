@@ -1,4 +1,7 @@
-<div *ngIf="musics && musics.length">
-  <app-card></app-card>
+<div *ngIf="musics && musics.length" class="container-items">
+  <app-card
+    *ngFor="let item of musics"
+    [musicInfo]="item"
+  ></app-card>
 </div>
 

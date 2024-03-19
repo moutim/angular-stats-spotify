@@ -1,5 +1,21 @@
-.example-card {
-  width: 250px;
+mat-card {
+  width: 220px;
+  height: 220px;
+  margin: 50px 10px;
+}
+
+.card mat-card-title {
+  font-size: 15px;
+  text-wrap: nowrap;
+}
+
+.card mat-card-subtitle {
+  font-size: 12px;
+}
+
+.card img {
+  max-width: 100%;
+  object-fit: fill;
 }
 
 .mat-mdc-card-header {

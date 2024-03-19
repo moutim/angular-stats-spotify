@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import IMusicInfo from '../../interfaces/IMusicInfo';
 
 @Component({
   selector: 'app-card',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
+  @Input() musicInfo: IMusicInfo = {
+    id: 0,
+    artist: '',
+    music: '',
+    srcImg: ''
+  };
 }
