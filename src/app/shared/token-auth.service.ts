@@ -9,7 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 export class TokenAuthService {
   token: string = '';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  scopesList: string[] = [
+    'user-top-read',
+    'user-read-recently-played',
+    'user-read-currently-playing',
+    'user-read-playback-state',
+    'user-read-private',
+    'user-read-email',
+    'playlist-read-collaborative',
+    'playlist-read-private',
+    'playlist-modify-private',
+    'playlist-modify-public'
+  ];
+
+  redirectURL: string = '';
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
+  }
 
   getToken(code: string) {
     const client_id = variables.CLIENT_ID;

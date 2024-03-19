@@ -1,10 +1,12 @@
 import { inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { DialogElementsExample } from "../dialog/dialog.component";
+// import { DialogElementsExample } from "../dialog/dialog.component";
+import { DialogService } from "../dialog/dialog.service";
 
 export const authGuard = () => {
   const route = inject(Router);
-  const dialog = inject(DialogElementsExample);
+  const dialogService = inject(DialogService);
+  // const dialog = inject(DialogElementsExample);
 
   const token = localStorage.getItem('token');
   console.log(token);
@@ -12,7 +14,7 @@ export const authGuard = () => {
 
   if (token == null) {
     console.log('aq entrou');
-    dialog.teste();
+    dialogService.openDialog();
     // route.navigate(['/login']);
     return false;
   } else {

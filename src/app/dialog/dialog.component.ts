@@ -7,6 +7,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { DialogService } from './dialog.service';
+import { TokenAuthService } from '../shared/token-auth.service';
 
 /**
  * @title Dialog elements
@@ -18,15 +20,10 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [MatButtonModule],
 })
 export class DialogElementsExample {
-  constructor(public dialog: MatDialog) {}
-
-  teste(){
-    console.log('testeeeeee');
-
-  }
+  constructor(private dialogService: DialogService) {}
 
   openDialog() {
-    this.dialog.open(DialogElementsExampleDialog);
+    this.dialogService.openDialog();
   }
 }
 
@@ -37,4 +34,10 @@ export class DialogElementsExample {
   standalone: true,
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
 })
-export class DialogElementsExampleDialog {}
+export class DialogElementsExampleDialog {
+  redirectURL: string = '';
+
+  constructor(private tokenService: TokenAuthService) {
+    this.redirectURL = this.tokenService.redirectURL;
+  }
+}

@@ -6,6 +6,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import variables from '../../../variables';
+import { TokenAuthService } from '../shared/token-auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -28,15 +29,11 @@ export class NavbarComponent {
     'playlist-modify-public'
   ];
 
-  scopes: string = 'user-top-read user-read-private user-read-email';
-
   redirectURL: string = '';
 
-  redirect: boolean = false;
-
-  constructor() { }
+  constructor(private tokenService: TokenAuthService) { }
 
   ngOnInit() {
-    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
+    this.redirectURL = this.tokenService.redirectURL;
   }
 }
