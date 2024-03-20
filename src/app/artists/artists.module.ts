@@ -4,12 +4,14 @@ import { ArtistsComponent } from './artists.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
+import { CardArtistComponent } from '../shared/card-artist/card-artist.component';
 
 
 
 @NgModule({
   declarations: [
-    ArtistsComponent
+    ArtistsComponent,
+    CardArtistComponent
   ],
   imports: [
     CommonModule,

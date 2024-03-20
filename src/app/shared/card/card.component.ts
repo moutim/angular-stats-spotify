@@ -14,11 +14,4 @@ export class CardComponent {
     music: '',
     srcImg: ''
   };
-
-  @Input() artistInfo: IArtistInfo = {
-    id: 0,
-    artist: '',
-    genre: '',
-    srcImg: ''
-  };
 }

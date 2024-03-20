@@ -13,10 +13,10 @@
   </section>
 
   <div *ngIf="artists && artists.length" class="container-items">
-    <app-card
+    <app-card-artist
       *ngFor="let item of artists"
-      [musicInfo]="item"
-    ></app-card>
+      [artistInfo]="item"
+    ></app-card-artist>
   </div>
 </div>
 
