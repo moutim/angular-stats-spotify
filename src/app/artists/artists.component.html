@@ -1,1 +1,22 @@
-<p>artists works!</p>
+<div class="musics-container">
+  <h2>Os 50 artistas que você mais escutou!</h2>
+  <p>
+    Navegue pelos seus artistas prediletos em nossa plataforma, utilizando a API do Spotify! Descubra quais artistas dominaram seus ouvidos em cada intervalo de tempo e embarque em uma jornada musical feita sob medida para você. Relembre momentos especiais e redescubra os talentos que mais te emocionam a qualquer momento e em qualquer lugar. Conecte-se com sua trilha sonora única agora mesmo!
+  </p>
+
+  <section>
+    <mat-button-toggle-group (ngModelChange)="changeTimeRange($event)" [(ngModel)]="timeRange" aria-label="Font Style" class="toggle-buttons">
+      <mat-button-toggle value="short">Um mês</mat-button-toggle>
+      <mat-button-toggle value="medium">Seis meses</mat-button-toggle>
+      <mat-button-toggle value="long">Desde o início</mat-button-toggle>
+    </mat-button-toggle-group>
+  </section>
+
+  <div *ngIf="artists && artists.length" class="container-items">
+    <app-card
+      *ngFor="let item of artists"
+      [musicInfo]="item"
+    ></app-card>
+  </div>
+</div>
+

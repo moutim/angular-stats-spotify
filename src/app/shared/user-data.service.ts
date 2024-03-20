@@ -46,6 +46,15 @@ export class UserDataService {
     );
   }
 
+  getMostListenedArtists(timeRange: string) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.get(
+      `${this.host}/v1/me/top/artists?time_range=${timeRange}_term&limit=50`,
+      { headers: headers }
+    );
+  }
+
   getUserInfo() {
     const headers: HttpHeaders = this.mountHeaders();
 

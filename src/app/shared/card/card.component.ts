@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import IMusicInfo from '../../interfaces/IMusicInfo';
+import IArtistInfo from '../../interfaces/IArtistInfo';
 
 @Component({
   selector: 'app-card',
@@ -11,6 +12,13 @@ export class CardComponent {
     id: 0,
     artist: '',
     music: '',
+    srcImg: ''
+  };
+
+  @Input() artistInfo: IArtistInfo = {
+    id: 0,
+    artist: '',
+    genre: '',
     srcImg: ''
   };
 }

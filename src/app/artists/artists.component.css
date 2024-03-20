@@ -1,0 +1,27 @@
+.container-items {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.musics-container {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.musics-container > p {
+  width: 70%;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 17px;
+}
+
+.musics-container h2 {
+  font-size: 33px;
+}
+
+.toggle-buttons {
+  box-shadow: 0px 10px 13px -7px #00000050, 0px 0px 15px -5px rgba(0,0,0,0) !important;
+}
