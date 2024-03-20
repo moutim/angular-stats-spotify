@@ -1,0 +1,41 @@
+.banner-home {
+  background-image: url("../../assets/banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 430px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 7px 12px -1px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.banner-home h1 {
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 55px;
+  letter-spacing: 3px;
+  margin: 15px 0;
+}
+
+.banner-home h2 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+  margin: 15px 0 45px 0;
+}
+
+.banner-home button {
+  width: 150px;
+  background-color: white;
+}
+
+.container-card-home {
+  width: 90%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,14 @@
+.card-home {
+  width: 350px;
+  color: #0000008a;
+}
+
+.card-home h2 {
+  font-size: 25px;
+}
+
+.card-home p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
