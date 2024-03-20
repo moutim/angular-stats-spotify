@@ -11,8 +11,15 @@
   margin: 50px 0;
 }
 
+.musics-container > p {
+  width: 70%;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 17px;
+}
+
 .musics-container h2 {
-  font-size: 30px;
+  font-size: 33px;
 }
 
 .toggle-buttons {

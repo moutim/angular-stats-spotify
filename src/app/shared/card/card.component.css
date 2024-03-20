@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 0px 0px 15px -5px #000000;
+  box-shadow: 0px 0px 15px -5px #0000008a;
   margin: 50px 10px;
   text-align: left;
 }
@@ -27,7 +27,7 @@ mat-card {
 .card img {
   max-width: 100%;
   object-fit: fill;
-  box-shadow: 0px 0px 15px -5px #000000;
+  box-shadow: 0px 0px 15px -5px #00000070;
 }
 
 .mat-mdc-card-header {

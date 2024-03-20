@@ -1,31 +1,37 @@
-<p>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span class="logo">
-        <a [routerLink]="['/']">Stats Spotify</a>
-      </span>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <img class="logo" src="assets/logo.svg" alt="Logo do Stats Spotify">
 
-      <span class="spacer-nav">
-        <a [routerLink]="['/musics']" routerLinkActive="router-link-active">Músicas</a>
-      </span>
+    <button
+      [routerLink]="['/musics']"
+      routerLinkActive="router-active"
+      class="spacer-nav"
+      mat-button
+    >Músicas</button>
 
-      <span class="spacer-nav">
-        <a [routerLink]="['/artists']" routerLinkActive="router-link-active">Artistas</a>
-      </span>
+    <button
+      [routerLink]="['/artists']"
+      routerLinkActive="router-active"
+      class="spacer-nav"
+      mat-button
+    >Artistas</button>
 
-      <span class="spacer-nav">
-        <a [routerLink]="['/playlists']" routerLinkActive="router-link-active">Playlists</a>
-      </span>
+    <button
+      [routerLink]="['/playlists']"
+      routerLinkActive="router-active"
+      class="spacer-nav"
+      mat-button
+    >Playlists</button>
 
-      <span class="example-spacer"></span>
-      <span *ngIf="!userLogged">
-        <a [href]="redirectURL">Entrar</a>
-      </span>
+    <span class="example-spacer"></span>
 
-      <button *ngIf="userLogged" mat-button [matMenuTriggerFor]="menu">Olá, Vitor</button>
-      <mat-menu #menu="matMenu">
-        <a class="button-exit" mat-raised-button href="https://www.google.com/" target="_blank">Sair</a>
-      </mat-menu>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</p>
+    <span *ngIf="!userLogged">
+      <a mat-button [href]="redirectURL">Entrar</a>
+    </span>
+
+    <button *ngIf="userLogged" mat-button [matMenuTriggerFor]="menu">Olá, {{ name }}</button>
+    <mat-menu #menu="matMenu">
+      <button (click)="logout()" class="button-exit" mat-button color="warn">Sair</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

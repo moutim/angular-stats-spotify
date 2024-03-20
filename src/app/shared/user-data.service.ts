@@ -15,17 +15,17 @@ export class UserDataService {
     private http: HttpClient,
     private tokenService: TokenAuthService,
     private dialog: DialogService
-  ) {
-    this.checkTokenInStorage();
-  }
+  ) { }
 
   checkTokenInStorage() {
     const tokenStorage: string | null = localStorage.getItem('token');
 
     if (tokenStorage) {
       this.token = tokenStorage;
+      return true;
     } else {
       this.dialog.openDialog();
+      return false;
     }
   }
 

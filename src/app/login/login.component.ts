@@ -19,8 +19,7 @@ export class LoginComponent {
   getToken(code: string) {
     this.authService.getToken(code).subscribe({
       next: (result: any) => {
-        this.saveToken(result.access_token)
-
+        this.saveToken(result.access_token);
         this.router.navigate(['/musics']);
       },
       error: (error) => {
@@ -41,7 +40,5 @@ export class LoginComponent {
     localStorage.setItem('token', token);
 
     this.authService.token = token;
-
-    console.log(this.authService.token);
   }
 }

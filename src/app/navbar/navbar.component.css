@@ -2,24 +2,34 @@
   flex: 1 1 auto;
 }
 
+mat-toolbar {
+  box-shadow: 0px 8px 9px 0px rgba(0,0,0,0.3);
+}
+
+mat-toolbar button, mat-toolbar a {
+  font-size: 16px;
+}
+
+.mat-toolbar-multiple-rows {
+  height: 55px;
+}
+
+.router-active {
+  background-color: #283593;
+}
+
 .spacer-nav {
   flex: .1 1 auto;
   margin-left: 30px;
 }
 
 .logo {
-  font-size: 35px;
-}
-
-span {
-  cursor: pointer;
-}
-
-a {
-  color: white;
-  text-decoration: none;
+  max-height: 60%;
+  max-width: 100%;
 }
 
 .button-exit {
   width: 100%;
 }
+
+

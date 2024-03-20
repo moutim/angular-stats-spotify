@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TokenAuthService } from '../shared/token-auth.service';
 import { UserDataService } from '../shared/user-data.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -12,25 +14,49 @@ export class NavbarComponent {
 
   redirectURL: string = '';
 
+  name: string = '';
+
   constructor(
     private tokenService: TokenAuthService,
-    // private userDataService: UserDataService
-  ) {
+    private route: Router,
+    private userData: UserDataService
+  ) { }
+
+  getUserInfos() {
+    this.userData.getUserInfo().subscribe({
+      next: (result: any) => {
+        this.name = result.display_name;
+      }
+    })
   }
 
   checkIfUserLogged() {
-    const token: string | null = localStorage.getItem('token');
+    const token: string| null = localStorage.getItem('token');
+    const check = this.userData.checkTokenInStorage();
 
-    if (token) {
+    if (check) {
       this.userLogged = true;
-
     }
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    this.userLogged = false;
+    this.route.navigate(['/']);
+  }
 
   ngOnInit() {
     this.redirectURL = this.tokenService.redirectURL;
 
-    this.checkIfUserLogged();
+    this.route.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      if (this.route.url !== '/') {
+        setTimeout(() => {
+          this.checkIfUserLogged();
+          this.getUserInfos();
+        }, 500);
+      }
+    });
   }
 }

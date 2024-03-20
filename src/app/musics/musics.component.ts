@@ -32,14 +32,12 @@ export class MusicsComponent {
 
           this.musics?.push(musicInfo);
         });
-        console.log(result);
-
-        console.log(this.musics);
       }
     });
   }
 
   ngOnInit() {
+    this.dataService.checkTokenInStorage();
     this.getMusics();
   }
 
