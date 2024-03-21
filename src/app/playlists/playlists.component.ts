@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { UserDataService } from '../shared/user-data.service';
-import ICreatePlaylist from '../interfaces/ICreatePlaylist';
 
 @Component({
   selector: 'app-playlists',
@@ -13,10 +12,34 @@ export class PlaylistsComponent {
   musics: string[] = [];
   playlistUUID: string = '';
   iframeSrc: string = '';
+  loading: boolean = false;
 
   constructor(
     private userDataService: UserDataService
-  ) {}
+  ) { }
+
+  ngOnInit() {
+    this.userDataService.checkTokenInStorage();
+  }
+
+  generatePlaylist() {
+    this.loading = true;
+
+    this.getMusics(this.musicsQuantity);
+
+    setTimeout(() => {
+      this.createPlaylist();
+    }, 1500);
+
+    setTimeout(() => {
+      this.addMusicsToPlaylist();
+    }, 3000);
+
+    setTimeout(() => {
+      this.iframeSrc = `https://open.spotify.com/embed/playlist/${this.playlistUUID}?utm_source=generator`;
+      this.loading = false;
+    }, 3500)
+  }
 
   changeTimeRange(timeRange: string) {
     this.timeRange = timeRange;
@@ -57,16 +80,24 @@ export class PlaylistsComponent {
   }
 
   createPlaylist() {
-    let userId: string = 'moutimdibre01';
+    let userId: string = '';
     let period: string = '';
 
     if (this.timeRange == 'medium') period = 'Seis meses'
     else if (this.timeRange == 'short') period = 'Um mês'
     else period = 'Desde o início';
 
-    this.userDataService.createPlaylist(userId, this.musicsQuantity, period).subscribe({
-      next: (result: any) => this.playlistUUID = result.id
-    });
+    this.userDataService.getUserInfo().subscribe({
+      next: (result: any) => {
+        userId = result.id;
+
+        this.userDataService.createPlaylist(userId, this.musicsQuantity, period).subscribe({
+          next: (result: any) => {
+            this.playlistUUID = result.id
+          }
+        });
+      }
+    })
   }
 
   addMusicsToPlaylist() {
@@ -74,25 +105,6 @@ export class PlaylistsComponent {
       next: (result: any) => {
         console.log(result);
       }
-    })
-  }
-
-  async generatePlaylist() {
-    this.getMusics(this.musicsQuantity);
-
-    setTimeout(() => {
-      this.createPlaylist();
-    }, 1000);
-
-    setTimeout(() => {
-      this.addMusicsToPlaylist();
-      this.iframeSrc = `https://open.spotify.com/embed/playlist/${this.playlistUUID}?utm_source=generator`;
-      console.log(this.iframeSrc);
-
-    }, 2000);
-  }
-
-  ngOnInit() {
-    this.userDataService.checkTokenInStorage();
+    });
   }
 }

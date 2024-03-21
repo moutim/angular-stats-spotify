@@ -6,10 +6,15 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+// import { SafePipe } from '../pipes/safe.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SafePipe } from '../pipes/safe.pipe';
+
 
 @NgModule({
   declarations: [
-    PlaylistsComponent
+    PlaylistsComponent,
+    SafePipe
   ],
   imports: [
     CommonModule,
@@ -17,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatChipsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ]
 })
 export class PlaylistsModule { }

@@ -18,7 +18,6 @@ import { DialogElementsExample } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HomeModule } from './home/home.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
