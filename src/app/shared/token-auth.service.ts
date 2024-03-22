@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import variables from '../../../variables';
+const { CLIENT_ID, REDIRECT_URL, CLIENT_SECRET } = process.env;
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
