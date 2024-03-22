@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="navbar-desktop">
   <mat-toolbar-row>
     <img [routerLink]="['/']" class="logo" src="assets/logo.svg" alt="Logo do Stats Spotify">
 
@@ -35,3 +35,8 @@
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<app-navbar-mobile
+  [name]="name"
+  [redirectURL]="redirectURL"
+></app-navbar-mobile>

@@ -32,4 +32,8 @@ mat-toolbar button, mat-toolbar a {
   width: 100%;
 }
 
-
+@media screen and (max-width: 750px) {
+  .navbar-desktop {
+    display: none;
+  }
+}

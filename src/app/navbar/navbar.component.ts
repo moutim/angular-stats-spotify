@@ -11,9 +11,7 @@ import { filter } from 'rxjs';
 })
 export class NavbarComponent {
   userLogged: boolean = false;
-
   redirectURL: string = '';
-
   name: string = '';
 
   constructor(
@@ -37,6 +35,8 @@ export class NavbarComponent {
     if (check) {
       this.userLogged = true;
     }
+
+    return 'ttt'
   }
 
   logout() {

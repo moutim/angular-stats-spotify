@@ -3,3 +3,7 @@
   width: 90%;
   margin: auto;
 }
+
+.mat-mdc-raised-button .mdc-button__label {
+  z-index: 0 !important;
+}
