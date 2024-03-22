@@ -11,6 +11,7 @@
   justify-content: center;
   box-shadow: inset 0px 7px 12px -1px rgba(0,0,0,0.3);
   color: white;
+  text-align: center;
 }
 
 .banner-home h1 {
@@ -19,6 +20,7 @@
   line-height: 55px;
   letter-spacing: 3px;
   margin: 15px 0;
+  padding: 0 30px;
 }
 
 .banner-home h2 {
@@ -26,6 +28,7 @@
   line-height: 30px;
   font-weight: 300;
   margin: 15px 0 45px 0;
+  padding: 0 30px;
 }
 
 .banner-home a {
@@ -37,5 +40,16 @@
   width: 90%;
   margin: 40px auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 450px) {
+  .banner-home h1 {
+    font-size: 50px;
+  }
+
+  .banner-home h2 {
+    font-size: 17px;
+  }
 }

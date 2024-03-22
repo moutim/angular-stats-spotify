@@ -1,6 +1,8 @@
 .card-home {
   width: 350px;
   color: #0000008a;
+  padding: 15px;
+  margin-bottom: 30px;
 }
 
 .card-home h2 {
