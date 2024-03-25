@@ -1,0 +1,10 @@
+.loading-login {
+  display: flex;
+  justify-content: center;
+  margin: 10%;
+}
+
+.loading-login mat-spinner {
+  width: 270px !important;
+  height: 270px !important;
+}
