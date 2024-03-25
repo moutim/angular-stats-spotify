@@ -63,6 +63,7 @@ mat-card {
   mat-card {
     width: 150px;
     height: 150px;
+    margin-bottom: 20px;
   }
 
   .card mat-card-title {
