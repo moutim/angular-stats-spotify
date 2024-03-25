@@ -1,27 +1,66 @@
-# StatsSpotify
+# Stats Spotify Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+Descubra as músicas, crie playlists e conheça os artistas que você mais escutou ao longo do tempo no Spotify. 🎶📊
 
-## Development server
+## Visão Geral
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este projeto utiliza a API do Spotify para fornecer estatísticas personalizadas sobre a sua atividade musical. Com base na sua conta do Spotify, você poderá visualizar os artistas mais escutados, as músicas mais reproduzidas e criar playlists com suas faixas mais ouvidas em diferentes períodos de tempo, como um mês, seis meses ou em toda a sua história no Spotify.
 
-## Code scaffolding
+![image](https://github.com/moutim/angular-stats-spotify/assets/88093439/0f681d22-30ee-41f9-ae86-39033c0a3eff)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Funcionalidades
 
-## Build
+1. **Top Artistas:**
+   - **Descrição:** Visualize a lista dos artistas mais escutados com base no seu histórico no Spotify. 🎤
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Top Músicas:**
+   - **Descrição:** Descubra quais são as suas músicas mais ouvidas, apresentadas em uma lista fácil de entender. 🎵
 
-## Running unit tests
+3. **Criar Playlist Personalizada:**
+   - **Descrição:** Crie playlists personalizadas com 10, 50 ou 100 músicas mais escutadas em períodos específicos, como um mês, seis meses ou ao longo de toda a sua jornada musical. 🎶📅
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. **Filtragem por Período:**
+   - **Descrição:** Escolha entre diferentes períodos de tempo (um mês, seis meses, All Time) para visualizar estatísticas específicas de acordo com suas preferências. ⏰
 
-## Running end-to-end tests
+5. **Interface Responsiva:**
+   - **Descrição:** Desfrute de uma interface amigável e responsiva, projetada para se adequar a diferentes dispositivos e tamanhos de tela. 📱💻
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+6. **Login Seguro do Spotify:**
+   - **Descrição:** Faça login de forma segura usando a autenticação do Spotify para garantir a privacidade e a segurança dos seus dados. 🔐
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Como Testar o Beta do Stats Spotify
+
+Para acessar o beta do Stats Spotify Angular, siga estas etapas simples:
+
+1. Envie seu email do Spotify para moutimg@gmail.com.
+2. Aguarde a confirmação do nosso time.
+3. Assim que confirmado, acesse o [deploy do aplicativo no Vercel](https://stats-spotify-repo.vercel.app/).
+4. Faça login com sua conta do Spotify.
+5. Explore todas as funcionalidades personalizadas que o Stats Spotify Angular oferece!
+
+## Modelo de Email
+
+**Assunto:** Solicitação de Acesso ao Beta do Stats Spotify Angular
+
+Prezado Vitor Moutim,
+
+Gostaria de solicitar acesso ao beta do Stats Spotify Angular para testar o aplicativo.
+
+Segue abaixo as informações necessárias:
+
+- Nome: [Seu Nome]
+- Email do Spotify: [Seu Email do Spotify]
+
+Atenciosamente,
+[Seu Nome]
+
+## Tecnologias Utilizadas
+
+- **Angular:** Um framework de desenvolvimento de aplicativos web para criar uma experiência interativa e responsiva. 🔷
+- **Angular Material:** Uma biblioteca de componentes e estilos prontos para uso, utilizada para criar uma interface de usuário moderna e consistente. 🛠️
+- **TypeScript:** Uma linguagem de programação que compila para JavaScript, utilizada para manipulação e interação dinâmica na aplicação. 🚀
+- **RxJS:** Uma biblioteca para programação reativa usada para lidar com eventos e fluxos de dados. 🔄
+- **CSS:** Utilizado para estilizar e dar um design atraente à interface do usuário. 🎨
+- **HTML:** A linguagem de marcação padrão para estruturar o conteúdo da aplicação. 📄
+- **Spotify API:** A API oficial do Spotify que fornece acesso aos dados de usuários, permitindo a criação de experiências personalizadas. 🎵
