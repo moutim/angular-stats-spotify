@@ -35,7 +35,7 @@ Para acessar o beta do Stats Spotify Angular, siga estas etapas simples:
 
 1. Envie seu email do Spotify para moutimg@gmail.com.
 2. Aguarde a confirmação do nosso time.
-3. Assim que confirmado, acesse o [deploy do aplicativo no Vercel](https://stats-spotify-repo.vercel.app/).
+3. Assim que confirmado, acesse o [deploy do aplicativo no Vercel](https://angular-stats-spotify.vercel.app/).
 4. Faça login com sua conta do Spotify.
 5. Explore todas as funcionalidades personalizadas que o Stats Spotify Angular oferece!
 
