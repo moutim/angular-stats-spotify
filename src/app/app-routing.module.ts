@@ -6,6 +6,7 @@ import { MusicsComponent } from './musics/musics.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { authGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { PlaylistsPersonalizedComponent } from './playlists-personalized/playlists-personalized.component';
 
 const routes: Routes = [
   {
@@ -23,8 +24,13 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'playlists',
+    path: 'playlists/top-musics',
     component: PlaylistsComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'playlists/personalized',
+    component: PlaylistsPersonalizedComponent,
     canActivate: [authGuard]
   },
   {
