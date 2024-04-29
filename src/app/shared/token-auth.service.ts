@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import variables from '../../../variables';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,12 @@ export class TokenAuthService {
   redirectURL: string = '';
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
-    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${variables.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(variables.REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
+    this.redirectURL = `https://accounts.spotify.com/authorize?client_id=${environment.CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(environment.REDIRECT_URL)}&scope=${encodeURIComponent(this.scopesList.join(' '))}`;
   }
 
   getToken(code: string) {
-    const client_id = variables.CLIENT_ID;
-    const client_secret = variables.CLIENT_SECRET;
+    const client_id = environment.CLIENT_ID;
+    const client_secret = environment.CLIENT_SECRET;
     const encoded = btoa(client_id + ':' + client_secret);
 
     const headers = new HttpHeaders({
@@ -41,9 +41,9 @@ export class TokenAuthService {
     const params = new URLSearchParams({
       'grant_type': 'authorization_code',
       'code': code,
-      'redirect_uri': variables.REDIRECT_URL,
-      'client_id': variables.CLIENT_ID,
-      'client_secret': variables.CLIENT_SECRET
+      'redirect_uri': environment.REDIRECT_URL,
+      'client_id': environment.CLIENT_ID,
+      'client_secret': environment.CLIENT_SECRET
     });
 
     const url = 'https://accounts.spotify.com/api/token';

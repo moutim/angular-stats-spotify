@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TokenAuthService } from '../shared/token-auth.service';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomeComponent {
   constructor(private tokenService: TokenAuthService) { }
 
   ngOnInit() {
+    console.log(environment);
+
     this.redirectURL = this.tokenService.redirectURL;
   }
 }
