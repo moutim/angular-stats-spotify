@@ -62,7 +62,7 @@ export class UserDataService {
     const date = new Date();
     const body = {
       name: `Top ${quantityMusics} músicas - ${period} - ${date.getMonth() + 1}/${date.getFullYear()}`,
-      description: `Playlist criada em ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} com base nas suas músicas mais escutadas - Desenvolvido por Vitor Moutim - https://angular-stats-spotify.vercel.app/`,
+      description: `Playlist criada em ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} com base nas suas músicas mais escutadas - Desenvolvido por Vitor Moutim - angular-stats-spotify.vercel.app`,
       public: true
     };
 
